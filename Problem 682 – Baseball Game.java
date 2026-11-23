@@ -1,10 +1,11 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class BaseballGame {
-    public static int calPoints(String[] operations) {
+class Solution {
+    public int calPoints(String[] operations) {
         Deque<Integer> stack = new ArrayDeque<>();
-        for (String op : operations) {
+        for (int i = 0; i < operations.length; i++) {
+            String op = operations[i];
             if (op.equals("+")) {
                 int top = stack.pop();
                 int newTop = top + stack.peek();
@@ -23,9 +24,5 @@ public class BaseballGame {
             total += score;
         }
         return total;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(calPoints(new String[]{"5", "2", "C", "D", "+"})); // 30
     }
 }
